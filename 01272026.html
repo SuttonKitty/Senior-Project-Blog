@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Stuck Pixles">
+        <meta property="og:description" content="A visual experiment for detecting stuck pixels.">
+        <meta property="og:image" content="https://suttonkitty.github.io/StuckPixles/preview.png">
+        <meta property="og:url" content="https://suttonkitty.github.io/StuckPixles/">
+        <meta property="og:type" content="website">
+        <meta name="description" content="A visual experiment for detecting stuck pixels.">
+        <meta property="og:site_name" content="Stuck Pixles">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Stuck Pixles">
+        <meta name="twitter:description" content="A visual experiment for detecting stuck pixels.">
+        <meta name="twitter:image" content="https://suttonkitty.github.io/StuckPixles/preview.png">
+
+        <title>Senior-Project</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">ideating…</div>
+        </div>
+            
+        <div class="main" hidden>
+            <div>
+                <div id="title">
+                    Senior Project
+                </div>
+
+                <div id="name">
+                    Sutton Fritz
+                </div>
+            </div>
+
+            <a href="index.html" id="pages">
+                <<
+            </a>
+
+            <div id="content">
+                <div class="date">
+                    [01.27.2026]
+                </div>
+
+                <div>
+                    Hello, World!
+                </div>
+
+                <div id="intro">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const loader = document.getElementById("loader");
+            const main = document.getElementById("main");
+            const images = document.images;
+            let loaded = 0;
+
+            function done() {
+                loader.style.opacity = "0";
+                loader.style.transition = "opacity 0.4s ease";
+
+                setTimeout(() => {
+                loader.remove();
+                main.hidden = false;
+                }, 400);
+            }
+
+            if (images.length === 0) done();
+
+            for (const img of images) {
+                if (img.complete) {
+                loaded++;
+                } else {
+                img.addEventListener("load", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                img.addEventListener("error", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                }
+            }
+
+            if (loaded === images.length) done();
+        </script>
+    </body>
+</html>
