@@ -81,14 +81,14 @@ body {
 
 #intro {
     padding-bottom: 0.5rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
 }
 
 .card {
     display: flex;
     flex-direction: row;
     gap: 0.3rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
 }
 
 .updates {
