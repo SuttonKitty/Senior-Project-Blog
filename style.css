@@ -61,7 +61,7 @@ body {
     color: gray;
 }
 
-#pages {
+.pages {
   color: #F7F7F2;
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -69,17 +69,13 @@ body {
   cursor: pointer;
 }
 
-#pages:hover {
-  color: gray;
-}
-
-#content {
+.content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-#intro {
+.intro {
     padding-bottom: 0.5rem;
     /* padding-left: 1rem; */
 }
