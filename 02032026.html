@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>02032026</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">ideating…</div>
+        </div>
+            
+        <div class="main" hidden>
+            <div>
+                <div id="title">
+                    Senior Project
+                </div>
+
+                <div id="name">
+                    Sutton Fritz
+                </div>
+            </div>
+
+            <a href="index.html" id="pages">
+                <<
+            </a>
+
+            <div id="content">
+                <div class="date">
+                    [02.03.2026]
+                </div>
+
+                <div>
+                    <b>Pecha Kucha Presentation.</b>
+                </div>
+
+                <div id="intro">
+                    First idea presentation.
+                </div>
+
+                <img src="./assets/PechaKucha/1.jpg">
+                <img src="./assets/PechaKucha/2.jpg">
+                <img src="./assets/PechaKucha/3.jpg">
+                <img src="./assets/PechaKucha/4.jpg">
+                <img src="./assets/PechaKucha/5.jpg">
+                <img src="./assets/PechaKucha/6.jpg">
+                <img src="./assets/PechaKucha/7.jpg">
+                <img src="./assets/PechaKucha/8.jpg">
+                <img src="./assets/PechaKucha/9.jpg">
+                <img src="./assets/PechaKucha/10.jpg">
+                <img src="./assets/PechaKucha/11.jpg">
+                <img src="./assets/PechaKucha/12.jpg">
+                <img src="./assets/PechaKucha/13.jpg">
+                <img src="./assets/PechaKucha/14.jpg">
+                <img src="./assets/PechaKucha/15.jpg">
+                <img src="./assets/PechaKucha/16.jpg">
+            </div>
+        </div>
+
+        <script>
+            const loader = document.getElementById("loader");
+            const main = document.getElementById("main");
+            const images = document.images;
+            let loaded = 0;
+
+            function done() {
+                loader.style.opacity = "0";
+                loader.style.transition = "opacity 0.4s ease";
+
+                setTimeout(() => {
+                loader.remove();
+                main.hidden = false;
+                }, 400);
+            }
+
+            if (images.length === 0) done();
+
+            for (const img of images) {
+                if (img.complete) {
+                loaded++;
+                } else {
+                img.addEventListener("load", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                img.addEventListener("error", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                }
+            }
+
+            if (loaded === images.length) done();
+        </script>
+    </body>
+</html>

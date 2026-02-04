@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>02022026</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+            <div class="loading-text">ideating…</div>
+        </div>
+            
+        <div class="main" hidden>
+            <div>
+                <div id="title">
+                    Senior Project
+                </div>
+
+                <div id="name">
+                    Sutton Fritz
+                </div>
+            </div>
+
+            <a href="index.html" id="pages">
+                <<
+            </a>
+
+            <div id="content">
+                <div class="date">
+                    [02.02.2026]
+                </div>
+
+                <div>
+                    <b>Brainstorm Notes 1.</b>
+                </div>
+
+                <div id="intro">
+                    I identified problems I face in my day-to-day life.
+                </div>
+
+                <img src="./assets/brainstormNotes1.png" alt="A mind map outlining ideas for my senior project.">
+            </div>
+        </div>
+
+        <script>
+            const loader = document.getElementById("loader");
+            const main = document.getElementById("main");
+            const images = document.images;
+            let loaded = 0;
+
+            function done() {
+                loader.style.opacity = "0";
+                loader.style.transition = "opacity 0.4s ease";
+
+                setTimeout(() => {
+                loader.remove();
+                main.hidden = false;
+                }, 400);
+            }
+
+            if (images.length === 0) done();
+
+            for (const img of images) {
+                if (img.complete) {
+                loaded++;
+                } else {
+                img.addEventListener("load", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                img.addEventListener("error", () => {
+                    loaded++;
+                    if (loaded === images.length) done();
+                });
+                }
+            }
+
+            if (loaded === images.length) done();
+        </script>
+    </body>
+</html>
